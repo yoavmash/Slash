@@ -1,0 +1,38 @@
+##########################
+# Unreal Generated Files #
+##########################
+*/Build
+*/Binaries
+*/DerivedDataCache
+*/Intermediate
+*/Platforms
+*/Saved
+*/Script
+Slash/Content/*
+!Slash/Content/_Game/
+
+###########################
+# Unreal Generated Assets #
+###########################
+
+#######################
+# Visual studio Files #
+#######################
+*/.vs
+Slash/.vsconfig
+Slash/Slash.sln
+
+################################
+# Visual studio Code Mac Files #
+################################
+*/.vscode
+Slash/Slash.code-workspace
+
+################################
+# Mac Files #
+################################
+.DS_Store
+*/.DS_Store
+*/.ignore
+Slash/Config/.DS_Store
+Slash/Config/HoloLens/.DS_Store
