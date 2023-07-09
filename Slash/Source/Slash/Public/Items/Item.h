@@ -19,6 +19,7 @@ protected:
 	virtual void BeginPlay() override;
 
 private:
+	UPROPERTY(VisibleAnywhere)
 	float RunningTime;
 
 	UPROPERTY(EditAnywhere)
