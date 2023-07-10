@@ -6,6 +6,8 @@
 #include "GameFramework/Pawn.h"
 #include "Bird.generated.h"
 
+class UCapsuleComponent;
+
 UCLASS()
 class SLASH_API ABird : public APawn
 {
@@ -20,4 +22,8 @@ public:
 
 protected:
 	virtual void BeginPlay() override;
+
+private:
+	UPROPERTY(VisibleAnywhere)
+	TObjectPtr<UCapsuleComponent> Capsule;
 };
