@@ -9,6 +9,8 @@
 
 class UCapsuleComponent;
 class USkeletalMeshComponent;
+class USpringArmComponent;
+class UCameraComponent;
 class UInputMappingContext;
 class UInputAction;
 
@@ -35,6 +37,12 @@ private:
 
 	UPROPERTY(VisibleAnywhere)
 	TObjectPtr<USkeletalMeshComponent> BirdMesh;
+
+	UPROPERTY(VisibleAnywhere)
+	TObjectPtr<USpringArmComponent> CameraBoom;
+
+	UPROPERTY(VisibleAnywhere)
+	TObjectPtr<UCameraComponent> ViewCamera;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	TObjectPtr<UInputMappingContext> BirdMappingContext;

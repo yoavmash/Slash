@@ -4,6 +4,8 @@
 #include "Pawns/Bird.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/SkeletalMeshComponent.h"
+#include "GameFramework/SpringArmComponent.h"
+#include "Camera/CameraComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "EnhancedInputComponent.h"
 
@@ -18,6 +20,13 @@ ABird::ABird()
 
 	BirdMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("BirdMesh"));
 	BirdMesh->SetupAttachment(Capsule);
+
+	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
+	CameraBoom->SetupAttachment(Capsule);
+	CameraBoom->TargetArmLength = 300.f;
+
+	ViewCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("ViewCamera"));
+	ViewCamera->SetupAttachment(CameraBoom);
 
 	AutoPossessPlayer = EAutoReceiveInput::Player0;
 }
@@ -37,10 +46,12 @@ void ABird::BeginPlay()
 
 void ABird::Move(const FInputActionValue& Value)
 {
-	const bool CurrentValue = Value.Get<bool>();
-	if (CurrentValue)
+	const float DirectionValue = Value.Get<float>();
+
+	if (Controller && (DirectionValue != 0.f))
 	{
-		UE_LOG(LogTemp, Warning, TEXT("IA_Move triggered"))
+		FVector Forward = GetActorForwardVector();
+		AddMovementInput(Forward, DirectionValue);
 	}
 }
 
