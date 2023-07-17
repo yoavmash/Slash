@@ -95,7 +95,7 @@ void ASlashCharacter::EKeyPressed()
 
 void ASlashCharacter::Attack()
 {
-	if (ActionState == EActionState::EAS_Unoccupied)
+	if (CanAttack())
 	{
 		PlayAttackMontage();
 		ActionState = EActionState::EAS_Attacking;
@@ -123,6 +123,17 @@ void ASlashCharacter::PlayAttackMontage()
 		}
 		AnimInstance->Montage_JumpToSection(SectionName, AttackMontage);
 	}
+}
+
+void ASlashCharacter::AttackEnd()
+{
+	ActionState = EActionState::EAS_Unoccupied;
+}
+
+bool ASlashCharacter::CanAttack()
+{
+	return ActionState == EActionState::EAS_Unoccupied &&
+		CharacterState != ECharacterState::ECS_Unequipped;
 }
 
 void ASlashCharacter::Tick(float DeltaTime)
