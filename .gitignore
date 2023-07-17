@@ -10,6 +10,7 @@
 */Script
 Slash/Content/*
 !Slash/Content/_Game/
+!Slash/Content/Mixamo/
 
 ###########################
 # Unreal Generated Assets #
