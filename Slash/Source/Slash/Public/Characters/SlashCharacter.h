@@ -29,13 +29,22 @@ public:
 protected:
 	virtual void BeginPlay() override;
 
+	/**
+	* Callbacks for input
+	*/
 	void Move(const FInputActionValue& Value);
 	void Look(const FInputActionValue& Value);
 	void EKeyPressed();
 	void Attack();
 
+	/**
+	* Play montage functions
+	*/
+	void PlayAttackMontage();
+
 private:
 	ECharacterState CharacterState = ECharacterState::ECS_Unequipped;
+	EActionState ActionState = EActionState::EAS_Unoccupied;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	TObjectPtr<UInputMappingContext> SlashContext;
