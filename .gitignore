@@ -11,6 +11,8 @@
 Slash/Content/*
 !Slash/Content/_Game/
 !Slash/Content/Mixamo/
+!Slash/Content/Megascans/
+!Slash/Content/MSPresets/
 
 ###########################
 # Unreal Generated Assets #
